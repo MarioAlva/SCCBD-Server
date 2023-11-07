@@ -24,7 +24,7 @@ interface RequestMsg {
   name?: string // and optional request field
 }
 interface ResponseMsg {
-  msg: string
+  msg: any
   error?: string
 }
 
@@ -37,15 +37,24 @@ interface ResponseMsg {
  *  - ReqBody. The interface of the request body in an HTTP POST or PUT.
  */
 
+  app.get('/key', (req: Request<{}, ResponseMsg, {}, RequestMsg, {}>, res) => {
+	const key = rsa.generateRSAKeys(256)
+	console.log(key.publicKey.toJSON())
+	res.send({
+	  msg: key.publicKey.toJSON()
+	})
+  })
+
 app.get('/hello', (req: Request<{}, ResponseMsg, {}, RequestMsg, {}>, res) => {
   res.send({
     msg: 'Hello ' + (req.query.name || 'anonymous')
   })
 })
 app.post('/hello', (req: Request<{}, ResponseMsg, RequestMsg, {}, {}>, res) => {
-  res.send({
-    msg: 'Hello ' + (req.body.name || 'anonymous')
-  })
+	console.log(req.body)
+//   res.send({
+//     msg: 'Hello ' + (req.body.name || 'anonymous')
+//   })
 })
 
 // This is our error middleware. If there is any error server side, we log it (server-side), and we answer with empty message and an error messgae 
