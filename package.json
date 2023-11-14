@@ -6,8 +6,8 @@
   "module": "./dist/esm/index.js",
   "scripts": {
     "test": "ts-node test.ts",
-    "build:esm": "tsc --target es2020 --module es2020 --declaration --outDir dist/esm index.ts",
-    "build:cjs": "tsc --target es2020 --module commonjs --declaration --outDir dist/cjs index.ts",
+    "build:esm": "tsc --target es2020 --module es2020 --declaration --outDir dist/esm src/index.ts",
+    "build:cjs": "tsc --target es2020 --module commonjs --declaration --outDir dist/cjs src/index.ts",
     "build": "npm run build:esm && npm run build:cjs"
   },
   "exports": {
