@@ -1,14 +1,6 @@
-// export const encrypt = (str: string) => {
-//   const reverse = str.split('').reverse().join('')
-//   return 'encrypted_' + reverse
-// }
-
-// export const decrypt = (str: string) => {
-//   const strip = str.substring(10)  // Let us remove the 'encrypted_' part
-//   return strip.split('').reverse().join('')
-// }
 import * as bcu from 'bigint-crypto-utils'
 import { bigintToBase64, base64ToBigint } from 'bigint-conversion'
+
 
 export class RsaPublicKey {
   e: bigint
@@ -73,7 +65,7 @@ export function generateRSAKeys(bitlength: number){
   const phi = (p-1n) * (q-1n)
   const e = 65537n
   const d = bcu.modInv(e, phi)
-  const publicKey = new RsaPublicKey(e, n)
-  const privateKey = new RsaPrivateKey(d, n)
+  const publicKey = new RsaPublicKey(e, BigInt(n))
+  const privateKey = new RsaPrivateKey(d, BigInt(n))
   return {publicKey, privateKey}
 }

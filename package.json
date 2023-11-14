@@ -1,7 +1,7 @@
 {
   "name": "my-rsa-implementation",
   "version": "1.0.0",
-  "description": "AYY LMAO",
+  "description": "Rsa implementation in typescript",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "bigint-conversion": "^2.4.2",
+    "bigint-conversion": "^2.4.3",
     "bigint-crypto-utils": "^3.3.0"
   }
 }
