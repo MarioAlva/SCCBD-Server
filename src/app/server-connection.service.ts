@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as rsa from 'my-rsa-implementation';
+import * as rsa from 'my-rsa-implementation';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import * as rsa from 'my-rsa-implementation';
 export class ServerConnectionService {
 	rsa : any;
   readonly baseUrl
+  e : any
+  n : any
   constructor() { 
     this.baseUrl = 'http://localhost:3000'
   }
