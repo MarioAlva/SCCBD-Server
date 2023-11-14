@@ -36,4 +36,8 @@ export class AppComponent {
     })
     this.serverResponse = response.error ?? response.msg
   }
+
+  async getKey() {
+	await this.serverConnectionService.getKey();
+  }
 }
